@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fce4ec; 
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 400px; /* Lebar maksimal di laptop */
+    width: 85%;       /* Lebar di HP */
+    z-index: 10;
+    position: relative;
+}
+
+/* --- BAGIAN RESPONSIF (MEDIA QUERIES) --- */
+@media (max-width: 480px) {
+    .card {
+        padding: 20px;
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 24px !important; /* Judul mengecil di HP */
+    }
+
+    p {
+        font-size: 14px !important; /* Teks mengecil di HP */
+    }
+
+    .profile-frame {
+        width: 100px !important; /* Foto mengecil sedikit */
+        height: 100px !important;
+    }
+    
+    .btn-group {
+        flex-direction: column; /* Tombol jadi atas-bawah di HP kecil */
+        gap: 10px;
+    }
+    
+    button {
+        width: 100%; /* Tombol jadi lebar penuh */
+        padding: 10px !important;
+    }
+}
+
+/* Style tambahan untuk elemen lainnya */
+.profile-frame {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    border: 5px solid #fce4ec;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.profile-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.heart {
+    font-size: 30px;
+    color: #e91e63;
+    animation: pulse 1.2s infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+h1 {
+    font-family: 'Satisfy', cursive;
+    font-size: 30px;
+    color: #ad1457;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+    transition: 0.3s;
+}
+
+#btnYes {
+    background-color: #e91e63;
+    color: white;
+}
+
+#btnNo {
+    background-color: #eee;
+    color: #777;
+}
+
+.bubbles {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -100px;
+    background: rgba(255, 182, 193, 0.5);
+    border-radius: 50%;
+    animation: float 8s infinite ease-in;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-1000px); opacity: 0; }
+}
